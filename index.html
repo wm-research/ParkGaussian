@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="ParkGaussian: Surround-view 3D Gaussian Splatting for Autonomous Parking.">
+    <meta name="keywords" content="Gaussian Splatting, Autonomous Driving">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ParkGaussian: Surround-view 3D Gaussian Splatting for Autonomous Parking</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/parking.png">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">
+                            <span class="gradient-text">ParkGaussian:</span> Surround-view 3D Gaussian Splatting for Autonomous Parking
+                        </h1>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">Xiaobao Wei<sup>*,1</sup>,</span>
+                            <span class="author-block">Zhangjie Ye<sup>*,2</sup>,</span>
+                            <span class="author-block">Yuxiang Gu<sup>*,2</sup>,</span>
+                            <span class="author-block">Zunjie Zhu<sup>2</sup>,</span>
+                            <span class="author-block">Yunfei Guo<sup>2</sup>,</span>
+                            <span class="author-block">Yingying Shen<sup>1</sup>,</span>
+                            <span class="author-block">Shan Zhao<sup>1</sup>,</span>
+                            <span class="author-block">Ming Lu<sup>2</sup>,</span>
+                            <span class="author-block">Haiyang Sun<sup>†,1</sup>,</span>
+                            <span class="author-block">Bing Wang<sup>1</sup>,</span>
+                            <span class="author-block">Guang Chen<sup>1</sup>,</span>
+                            <span class="author-block">Rongfeng Lu<sup>‡,2</sup>,</span>
+                            <span class="author-block">Hangjun Ye<sup>‡,1</sup></span>
+                        </div>
+
+                        <div class="is-size-5 publication-affiliations">
+                            <p><sup>1</sup>Xiaomi EV</p>
+                            <p><sup>2</sup>Hangzhou Dianzi University</p>
+                        </div>
+
+                        <div class="publication-footnotes is-size-6" style="margin-bottom: 12px;">
+                            <p><sup>*</sup>Equal Contribution</p>
+                            <p><sup>†</sup>Project Leader</p>
+                            <p><sup>‡</sup>Corresponding Author</p>
+                        </div>
+
+                        <div class="publication-links">
+                            <span class="link-block">
+                                <a href="static/file/ParkGaussian.pdf" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon">
+                                        <i class="ai ai-arxiv"></i>
+                                    </span>
+                                    <span>Paper</span>
+                                </a>
+                            </span>
+
+                            <span class="link-block">
+                                <a href="https://github.com/wm-research/ParkGaussian" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon"><i class="fab fa-github"></i></span>
+                                    <span>Code</span>
+                                </a>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-10">
+                    <div class="pipeline-image">
+                        <img src="./static/images/pipeline.png" alt="ParkGaussian" />
+                    </div>
+                    <h2 class="subtitle has-text-centered pipeline-caption">
+                        Our <b>ParkGaussian</b> framework integrates 3D Gaussian Splatting (3DGS) for parking scene reconstruction and introduces a <strong>slot-aware reconstruction strategy</strong> that leverages existing parking perception methods to enhance the synthesis quality of slot regions.
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="abstract-section" class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-10">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Parking is a critical task for autonomous driving systems (ADS), with unique challenges in crowded parking slots and GPS-denied environments. However, existing works focus on 2D parking slot perception, mapping, and localization, 3D reconstruction remains underexplored, which is crucial for capturing complex spatial geometry in parking scenarios.
+                            Naively improving the visual quality of reconstructed parking scenes does not directly benefit autonomous parking, as the key entry point for parking is the slots perception module. To address these limitations, we propose ParkGaussian, the first framework that integrates 3D Gaussian Splatting (3DGS) for parking scene reconstruction.
+                            To further improve the alignment between reconstruction and downstream parking slot detection, we introduce a <strong>slot-aware reconstruction strategy</strong> that leverages existing parking perception methods to enhance the synthesis quality of slot regions.
+                            Experiments on ParkRecon3D demonstrate that ParkGaussian achieves state-of-the-art reconstruction quality and better preserves perception consistency for downstream tasks. The code and dataset will be released.
+                        </p>
+                        <p>
+                            To address these limitations, we curate the first benchmark named <strong>ParkRecon3D</strong>, specifically designed for parking scene reconstruction. It includes sensor data from four surround-view fisheye cameras with calibrated extrinsics and dense parking slot annotations. We then propose ParkGaussian, the first framework that integrates 3D Gaussian Splatting (3DGS) for parking scene reconstruction.
+                            To further improve the alignment between reconstruction and downstream parking slot detection, we introduce a slot-aware reconstruction strategy that leverages existing parking perception methods to enhance the synthesis quality of slot regions.
+                            Experiments on ParkRecon3D demonstrate that ParkGaussian achieves state-of-the-art reconstruction quality and better preserves perception consistency for downstream tasks. The code and dataset will be released.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rgb-comparison-section" class="section video-section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-11">
+                    <h2 class="title is-3">Improved Scene Reconstruction</h2>
+
+                    <div id="sidebyside-buttons" class="mb-5">
+                        <button id="sidebyside-scene1" class="button is-primary" data-scene="1">Scene 1</button>
+                        <button id="sidebyside-scene2" class="button" data-scene="2">Scene 2</button>
+                        <button id="sidebyside-scene3" class="button" data-scene="3">Scene 3</button>
+                        <button id="sidebyside-scene4" class="button" data-scene="4">Scene 4</button>
+                    </div>
+
+                    <div id="video-stack-container" class="video-stack-container mb-5">
+                        <div class="video-stack-wrapper scene-video" data-scene="1">
+                            <div class="video-title">3DGUT</div>
+                            <video class="sidebyside-s3gsVideo" width="100%" height="auto" loop playsinline autoplay muted>
+                                <source src="./static/videos/3DGUT_scene1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-stack-wrapper scene-video" data-scene="1">
+                            <div class="video-title">ParkGaussian</div>
+                            <video class="sidebyside-oursVideo" width="100%" height="auto" loop playsinline autoplay muted>
+                                <source src="./static/videos/ours_scene1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="video-stack-wrapper scene-video" data-scene="2" style="display: none;">
+                            <div class="video-title">3DGUT</div>
+                            <video class="sidebyside-s3gsVideo" width="100%" height="auto" loop playsinline autoplay muted>
+                                <source src="./static/videos/3DGUT_scene2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-stack-wrapper scene-video" data-scene="2" style="display: none;">
+                            <div class="video-title">ParkGaussian</div>
+                            <video class="sidebyside-oursVideo" width="100%" height="auto" loop playsinline autoplay muted>
+                                <source src="./static/videos/ours_scene2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="video-stack-wrapper scene-video" data-scene="3" style="display: none;">
+                            <div class="video-title">3DGUT</div>
+                            <video class="sidebyside-s3gsVideo" width="100%" height="auto" loop playsinline autoplay muted>
+                                <source src="./static/videos/3DGUT_scene3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-stack-wrapper scene-video" data-scene="3" style="display: none;">
+                            <div class="video-title">ParkGaussian</div>
+                            <video class="sidebyside-oursVideo" width="100%" height="auto" loop playsinline autoplay muted>
+                                <source src="./static/videos/ours_scene3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="video-stack-wrapper scene-video" data-scene="4" style="display: none;">
+                            <div class="video-title">3DGUT</div>
+                            <video class="sidebyside-s3gsVideo" width="100%" height="auto" loop playsinline autoplay muted>
+                                <source src="./static/videos/3DGUT_scene4.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-stack-wrapper scene-video" data-scene="4" style="display: none;">
+                            <div class="video-title">ParkGaussian</div>
+                            <video class="sidebyside-oursVideo" width="100%" height="auto" loop playsinline autoplay muted>
+                                <source src="./static/videos/ours_scene4.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <div class="columns is-centered">
+                <div class="column is-11 content">
+                    <h2 class="title">BibTeX</h2>
+                    <pre style="border-radius: 6px; background: linear-gradient(to right,
+    rgba(255, 243, 206, 0.556) 0%,
+    rgba(255, 240, 245, 0.7) 50%,
+    rgba(255, 245, 250, 0.7) 100%
+); padding: 20px; color: black;"><code>@article{wei2026parkgaussian,
+        author    = {Wei, Xiaobao and Ye, Zhangjie and Gu, Yuxiang and Zhu, Zunjie and Guo, Yunfei and Shen, Yingying and Zhao, Shan and Lu, Ming and Sun, Haiyang and Wang, Bing and Chen, Guang and Lu, Rongfeng and Ye, Hangjun},
+        title     = {ParkGaussian: A Framework for Surround-view 3D Gaussian Splatting for Autonomous Parking},
+        journal   = {Under Review},
+        year      = {2026},
+    }</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8 has-text-centered">
+                    <div class="content">
+                        <div class="mb-4">
+                            <a class="icon-link" href="https://arxiv.org/pdf/2411.15582">
+                                <i class="fas fa-file-pdf"></i>
+                            </a>
+                            <a class="icon-link" href="#">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                        <p>
+                            This website template is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. We appreciate the authors for sharing their code.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('#sidebyside-buttons button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const sceneNum = this.dataset.scene;
+
+                    buttons.forEach(btn => btn.classList.remove('is-primary'));
+                    this.classList.add('is-primary');
+
+                    document.querySelectorAll('.scene-video').forEach(videoWrapper => {
+                        videoWrapper.style.display = 'none';
+                        const video = videoWrapper.querySelector('video');
+                        if (video) video.pause();
+                    });
+
+                    document.querySelectorAll(`.scene-video[data-scene="${sceneNum}"]`).forEach(videoWrapper => {
+                        videoWrapper.style.display = 'block';
+                        const video = videoWrapper.querySelector('video');
+                        if (video) {
+                            video.currentTime = 0;
+                            video.play().catch(() => {});
+                        }
+                    });
+                });
+            });
+
+            const scene1Button = document.querySelector('#sidebyside-scene1');
+            if (scene1Button) scene1Button.click();
+        });
+    </script>
+
+</body>
+
+</html>
