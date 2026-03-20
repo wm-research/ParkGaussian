@@ -1,6 +1,6 @@
 # ParkGaussian: Surround-view 3D Gaussian Splatting for Autonomous Parking
 
-> [ParkGaussian: Surround-view 3D Gaussian Splatting for Autonomous Parking](https://arxiv.org/abs/2601.01386)  
+> [ParkGaussian: Surround-view 3D Gaussian Splatting for Autonomous Parking](https://arxiv.org/abs/2601.01386)
 > [Xiaobao Wei](https://ucwxb.github.io/)\*, Zhangjie Ye\*, Yuxiang Gu\*, Zunjie Zhu, Yunfei Guo, Yingying Shen, Shan Zhao, Ming Lu, [Haiyang Sun](https://haiyangs.cn/)$^\dagger$, Bing Wang, Guang Chen, Rongfeng Lu $^\ddagger$, Hangjun Ye $^\ddagger$    
 > CVPR 2026 Main Conference Paper  
 > \* Equal contribution  
@@ -8,6 +8,7 @@
 > $\ddagger$ Corresponding author   
 
 ## News
+- **[2026/3/20]** Dataset [ParkRecon3D](https://huggingface.co/datasets/pipa83165/ParkRecon3D) is released.  
 - **[2026/2/21]** ParkGaussian is accepted by CVPR2026! Code and datasets will be released soon. 
 
 ## Overview
